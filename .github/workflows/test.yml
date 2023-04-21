@@ -9,13 +9,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "setup"
-  build:
+  build1:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "build"
+  build2:
     needs: setup
     runs-on: ubuntu-latest
     steps:
       - run: echo "build"
   test:
-    needs: build
+    needs:
+    - build1
+    - build2
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "test"
+  deploy:
+    needs:
+    - test
     runs-on: ubuntu-latest
     steps:
       - run: echo "test"
