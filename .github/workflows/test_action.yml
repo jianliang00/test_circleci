@@ -10,8 +10,9 @@ on:
         type: string
       fetch_depth:
         description: "The depth to fetch"
-        default: '1'
-        type: number
+        required: true
+        default: "1"
+        type: string
       id:
         description: "The unique identifier to indentify the workflow run"
         required: true
