@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: jianliang00/commit-queue-actions@fdff17bcb4a723592940f1bae711f6bd029c66e1
+      - uses: jianliang00/commit-queue-actions@0ce6211a356d07bd21020376130dcf3bcc300046
       
       # Add your steps here
       - name: Build
