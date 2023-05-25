@@ -1,0 +1,33 @@
+name: Commit Queue Workflow
+
+on:
+  # Allows this workflow to be triggered by Commit Commit, do not modify
+  workflow_dispatch:
+    inputs:
+      revision:
+        description: "The revision of the source code to checkout"
+        required: true
+        type: string
+      fetch_depth:
+        description: "The depth to fetch"
+        required: true
+        default: "1"
+        type: string
+      id:
+        description: "The unique identifier to indentify the workflow run"
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ${{ github.event.inputs.id }}
+        shell: bash
+        run: echo run identifier ${{ github.event.inputs.id }}
+      - uses: jianliang00/commit-queue-actions@v1.0
+      
+      # Add your steps here
+      - name: Build
+        shell: bash
+        run: echo run build
