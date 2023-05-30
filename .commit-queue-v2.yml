@@ -1,0 +1,7 @@
+github_actions:
+  stage:
+    - dry-run
+    - cq-test
+  runner:
+    type: github-actions
+    workflow: commit-queue.yml
