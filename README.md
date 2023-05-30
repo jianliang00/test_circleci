@@ -1,2 +1,2 @@
 # test_circleci
-A empty repository for trying CircleCI
+A test repository for trying CircleCI
