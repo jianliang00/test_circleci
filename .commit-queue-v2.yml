@@ -5,3 +5,10 @@ github_actions:
   runner:
     type: github-actions
     workflow: commit-queue.yml
+
+github_actions2:
+  stage:
+    - cq-test
+  runner:
+    type: github-actions
+    workflow: commit-queue.yml
