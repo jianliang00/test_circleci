@@ -7,13 +7,21 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "*" ]
+  # Allows this workflow to be triggered by Commit Commit, do not modify
+  workflow_dispatch:
+    inputs:
+      conclusion:
+        description: "The consulsion of commit queue"
+        required: true
+        type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  WaitingforCommitQueue:
+  CommitQueue:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name }} == "workflow_dispatch"
     steps:
       - name: Don't worry, this will be removed by the Commit Queue as soon as it notices this change
         shell: bash
-        run: exit 1
+        run: exit 0
