@@ -1,0 +1,4 @@
+github_actions:
+  runner:
+    type: github-actions
+    workflow: commit-queue.yml
