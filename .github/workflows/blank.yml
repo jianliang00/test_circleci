@@ -1,24 +1,19 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CQ
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "*" ]
-#   pull_request:
-#     branches: [ "main" ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  commit-queue:
+  WaitingforCommitQueue:
     runs-on: ubuntu-latest
     steps:
-      - uses: LouisBrunner/checks-action@v1.6.0
-        if: github.event_name == 'push'
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          name: CQ/PRE-CHECK
-          status: in_progress
+      - name: Don't worry, this will be removed by the Commit Queue as soon as it notices this change
+        shell: bash
+        run: exit 1
